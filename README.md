@@ -5,7 +5,6 @@ Keto is a permission system made by ori base on [zanzibar](https://research.goog
 
 It has the benefits to be flexible and scalable.
 
-
 ## Installation
 Create a keto.yml files (namespace found on the repo, no docs on [it](https://github.com/ory/keto/blob/a4b41bdb56bf93a1be1a969a0e7fef1670d260eb/contrib/rewrites-example/keto.yaml#L4))
 
@@ -36,6 +35,11 @@ Create the .env (base on the .env.example if you didn't change the docker-compos
 Start the docker-compose file
 ```
 docker-compose up -d
+```
+
+Install the yarn dependancies.
+```
+yarn install --frozen-lockfile
 ```
 
 Once it is started, you should be able to use keto. To do so you can launch the script who list you the avalaible command
