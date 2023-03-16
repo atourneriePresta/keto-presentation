@@ -70,7 +70,7 @@ program.command('relation:get')
       };
       try {
         const data = await new Keto().getRelations(payload);
-        console.log('All the relations:\n', data);
+        console.log('All the relations:\n', JSON.stringify(data, null, 2));
       } catch (error) {
         console.log(error.response.data);
       }
