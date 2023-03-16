@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@grpc/grpc-js": "^1.7.3",
+    "@ory/client": "^1.0.1",
+    "@ory/keto-client": "^0.10.0-alpha.0",
+    "@ory/keto-grpc-client": "^0.10.0-alpha.0",
+    "axios": "0.21.4",
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "google-protobuf": "^3.21.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "keto": "ts-node index.ts"
+  }
+}

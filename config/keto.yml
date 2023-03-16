@@ -1,0 +1,12 @@
+version: v0.8.0-alpha.2
+
+serve:
+  read:
+    host: 0.0.0.0
+    port: 4466
+  write:
+    host: 0.0.0.0
+    port: 4467
+
+namespaces:
+  location: file://./keto_namespaces/index.ts
