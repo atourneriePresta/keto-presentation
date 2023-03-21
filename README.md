@@ -1,7 +1,7 @@
 # KETO PERMISSION SYSTEM
 
 ## Introduction
-Keto is a permission system made by ori base on [zanzibar](https://research.google/pubs/pub48190/)
+Keto is a permission system made by ory base on [zanzibar](https://research.google/pubs/pub48190/)
 
 It has the benefits to be flexible and scalable.
 
