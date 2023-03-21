@@ -3,8 +3,11 @@ import { Namespace, SubjectSet, Context } from "@ory/permission-namespace-types"
 class Group implements Namespace {
   // The relations of Group with other namespaces
   related: {
+    // The namespace has an array of group as parents
     parents: Group[],
+    // The namespace has an array of mix group/user as members
     members: (User | Group)[],
+    // The namepace has an array of mix group/user as owners
     owners: (User | Group)[]
   }
 
@@ -15,7 +18,9 @@ class Group implements Namespace {
       // Verify if the subject is in the owners
       this.related.owners.includes(ctx.subject) ||
       // Verify the permission viewShop of the parents
-      this.related.parents.traverse(p => p.permits.viewShop(ctx)),
+      this.related.parents.traverse(p => p.permits.viewShop(ctx)) || 
+      // Verify the permission viewShop of the owners
+      this.related.owners.traverse(p => p.permits.viewShop(ctx)),
     editShop: (ctx: Context): boolean =>
       // Verify if the subject is in the owners
       this.related.owners.includes(ctx.subject) ||
@@ -35,7 +40,10 @@ class Shop implements Namespace {
     editShop: (ctx: Context): boolean =>
       this.related.owners.includes(ctx.subject) || this.related.owners.traverse(p => p.permits.editShop(ctx)),
     viewShop: (ctx: Context): boolean =>
-      this.permits.editShop(ctx) || this.related.users.includes(ctx.subject) || this.related.groups.traverse(p => p.permits.viewShop(ctx))
+      this.permits.editShop(ctx) ||
+      this.related.users.includes(ctx.subject) ||
+      this.related.groups.traverse(p => p.permits.viewShop(ctx)) ||
+      this.related.owners.traverse(p => p.permits.viewShop(ctx))
   }
 }
 
